@@ -1,0 +1,3 @@
+BEST-FIRST SEARCH
+Greedy search
+A* search
