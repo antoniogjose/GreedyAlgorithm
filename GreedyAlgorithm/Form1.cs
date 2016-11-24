@@ -289,10 +289,10 @@ namespace GreedyAlgorithm
             }
 
         }
-
+        /*
         private void button1_Click(object sender, EventArgs e)
         {
-
+            
             rTb_Output.Clear();
 
             grafo.Clear();
@@ -324,6 +324,150 @@ namespace GreedyAlgorithm
         private void cBA_CheckedChanged(object sender, EventArgs e)
         {
             cB_Gready.Checked = false;
+
+        }
+        */
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            rTb_Output.Clear();
+
+            grafo.Clear();
+            if (cB_Gready.Checked) PopularGrafoEuristica();
+            //estrategia A*
+            if (cBA.Checked) PopularGrafoA();
+
+            PrintDataSet();
+
+            rTb_Output.AppendText("-----------------------------------\n");
+
+            PrintGrafo();
+
+            rTb_Output.AppendText("-----------------------------------\n");
+
+            PrintGrafoEuristica();
+
+            rTb_Output.AppendText("-----------------------------------\n");
+
+            GreedySearch(cidades, linhaRetaEntreCidades, tB_cidade.Text);
+        }
+
+        private void cB_Gready_CheckedChanged_1(object sender, EventArgs e)
+        {
+            cBA.Checked = false;
+        }
+
+        private void cBA_CheckedChanged_1(object sender, EventArgs e)
+        {
+            cB_Gready.Checked = false;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void PrintDados(List<List<double>> dados)
+        {
+
+            rT_Board.AppendText("Dados :\n");
+            for (int i = 0; i < dados.Count(); i++)
+            {
+                for (int j = 0; j < dados[i].Count(); j++)
+                {
+                    rT_Board.AppendText(" " + dados[i][j]);
+                }
+                rT_Board.AppendText("\n");
+            }
+
+        }
+        // Algoritmo IA Perceptron
+
+        private void CalculaPerceptron()
+        {
+            // dados (X0, X1, X2, t)
+            List<List<double>> dados = new List<List<double>>();
+            int nDeEntradas;
+            double w0, w1, w2;
+            double u1 = 0.0, u2 = 0.0, u3 = 0.0, u4 = 0.0;
+            double n = 0.5;
+            bool existMudancaPeso = false;
+            double erro;
+            int contCicle = 0;
+
+            rT_Board.Clear();
+
+            // carregar dados para a lista :
+
+            foreach (DataGridViewRow row in dG_dados.Rows)
+                if(row.Cells[0].Value != null)dados.Add(new List<double> { double.Parse(row.Cells[0].Value.ToString()), double.Parse(row.Cells[1].Value.ToString()), double.Parse(row.Cells[2].Value.ToString()), double.Parse(row.Cells[4].Value.ToString()) });
+
+            nDeEntradas = dados.Count();
+            PrintDados(dados);
+
+            // pesos
+            w0 = 0; w1 = 0; w2 = 0;
+            rT_Board.AppendText("Pesos : w0 ="+ w0 +", w1 = "+ w1+" w2 = "+ w2 +"\n\n");
+            // claculo do erro
+
+            for (int i = 0; i < nDeEntradas; i++)
+            {
+                // passo 1
+                // calculo da entrada n
+                rT_Board.AppendText("Entrada "+(i+1)+"\n");
+                double u = w0 * dados[i][0] + w1 * dados[i][1] + w2 * dados[i][2];
+                rT_Board.AppendText("u"+i+" = "+ w0+" x "+ dados[i][0]+" + " + w1 + " x " + dados[i][1] +" + "+ w2 + " x " + dados[i][2] + "\n");
+                int s;
+
+                if (i == 0) u1 = u;
+                if (i == 1) u2 = u;
+                if (i == 2) u3 = u;
+                if (i == 3) u4 = u;
+
+                // passo 2
+                if (u > 0) s = 1;
+                else s = 0;
+
+                // passo 3
+                erro = dados[i][3] - s;
+                rT_Board.AppendText("Erro = " + dados[i][3] + " - "+s+ "\n\n");
+
+                if (s != dados[i][3])
+                {
+                    // Atualizar pesos
+                    rT_Board.AppendText("Atialização de pesos.\n");
+                    w0 = w0 + n * erro * dados[i][0];
+                    w1 = w1 + n * erro * dados[i][1];
+                    w2 = w2 + n * erro * dados[i][2];
+                    existMudancaPeso = true;
+                    contCicle = 0;
+                    rT_Board.AppendText("Pesos : w0 =" + w0 + ", w1 = " + w1 + " w2 = " + w2 + "\n");
+
+                }
+                
+
+                if (i == nDeEntradas - 1 && existMudancaPeso == true && contCicle < 7) i = -1;
+
+                contCicle++;
+
+            }
+
+            rT_Board.AppendText("\nResultado Final : u1 =" + u1 + ", u2 = " + u2 + " u3 = " + u3 +" u4 = " + u4 + "\n");
+
+
+        }
+
+        private void bt_Calcular_Click(object sender, EventArgs e)
+        {
+
+            CalculaPerceptron();
+
+
+
 
         }
     }
