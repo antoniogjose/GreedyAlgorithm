@@ -456,7 +456,7 @@ namespace GreedyAlgorithm
 
             }
 
-            rT_Board.AppendText("\nResultado Final : u1 =" + u1 + ", u2 = " + u2 + " u3 = " + u3 +" u4 = " + u4 + "\n");
+            rT_Board.AppendText("\nResultado Final : u1 = " + u1 + ", u2 = " + u2 + ", u3 = " + u3 +", u4 = " + u4 + "\n");
 
 
         }
@@ -465,9 +465,6 @@ namespace GreedyAlgorithm
         {
 
             CalculaPerceptron();
-
-
-
 
         }
     }
