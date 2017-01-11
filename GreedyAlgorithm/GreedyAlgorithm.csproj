@@ -33,6 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge">
+      <HintPath>..\..\trabalhos\neuro_src\neuro_src\Samples\Neuro\SOM\TSP\bin\Debug\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Controls">
+      <HintPath>..\..\trabalhos\neuro_src\neuro_src\Samples\Neuro\SOM\TSP\bin\Debug\AForge.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Neuro">
+      <HintPath>..\..\trabalhos\neuro_src\neuro_src\Samples\Neuro\SOM\TSP\bin\Debug\AForge.Neuro.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
