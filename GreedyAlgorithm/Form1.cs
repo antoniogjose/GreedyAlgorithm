@@ -667,8 +667,7 @@ namespace GreedyAlgorithm
             }
 
             // enable settings controls
-            ProcessThreadCollection currentThreads = Process.GetCurrentProcess().Threads;
-            ThreadSafeEnableControls(true);
+
  
         }
 
@@ -722,6 +721,7 @@ namespace GreedyAlgorithm
             needToStop = false;
             workerThread = new Thread(new ThreadStart(SearchSolution));
             workerThread.Start();
+
         }
 
         private void tBParar_Click(object sender, EventArgs e)
@@ -734,6 +734,22 @@ namespace GreedyAlgorithm
 
         private void tBPontos_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if ((workerThread != null) && (workerThread.IsAlive))
+            {
+                needToStop = true;
+                workerThread.Join();
+            }
+        }
+
+        private void bTAdicionar_Click(object sender, EventArgs e)
+        {
             try
             {
                 citiesCount = Math.Max(5, Math.Min(50, int.Parse(tBPontos.Text)));
@@ -745,15 +761,7 @@ namespace GreedyAlgorithm
             tBPontos.Text = citiesCount.ToString();
 
             GenerateMap();
-        }
-
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if ((workerThread != null) && (workerThread.IsAlive))
-            {
-                needToStop = true;
-                workerThread.Join();
-            }
+            EnableControls(true);
         }
     }
 }

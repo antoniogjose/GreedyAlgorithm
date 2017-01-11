@@ -63,6 +63,8 @@
             this.tBInteraccoes = new System.Windows.Forms.TextBox();
             this.tBNeuronios = new System.Windows.Forms.TextBox();
             this.tBPontos = new System.Windows.Forms.TextBox();
+            this.bTAdicionar = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.tB.SuspendLayout();
             this.tP_PesInf.SuspendLayout();
             this.tP_RedNeu.SuspendLayout();
@@ -251,6 +253,7 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.chart1);
+            this.tabPage1.Controls.Add(this.bTAdicionar);
             this.tabPage1.Controls.Add(this.bTIniciar);
             this.tabPage1.Controls.Add(this.tBParar);
             this.tabPage1.Controls.Add(this.label6);
@@ -258,6 +261,7 @@
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.lBNeuronios);
+            this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.tBinteraccao);
             this.tabPage1.Controls.Add(this.tBRaio);
@@ -304,7 +308,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(560, 152);
+            this.label6.Location = new System.Drawing.Point(560, 229);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 13);
             this.label6.TabIndex = 6;
@@ -313,7 +317,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(582, 126);
+            this.label5.Location = new System.Drawing.Point(582, 203);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 6;
@@ -322,7 +326,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(512, 100);
+            this.label4.Location = new System.Drawing.Point(512, 177);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 13);
             this.label4.TabIndex = 6;
@@ -331,7 +335,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(549, 74);
+            this.label3.Location = new System.Drawing.Point(549, 151);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 6;
@@ -340,7 +344,7 @@
             // lBNeuronios
             // 
             this.lBNeuronios.AutoSize = true;
-            this.lBNeuronios.Location = new System.Drawing.Point(557, 48);
+            this.lBNeuronios.Location = new System.Drawing.Point(557, 125);
             this.lBNeuronios.Name = "lBNeuronios";
             this.lBNeuronios.Size = new System.Drawing.Size(55, 13);
             this.lBNeuronios.TabIndex = 6;
@@ -349,7 +353,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(557, 22);
+            this.label2.Location = new System.Drawing.Point(557, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 6;
@@ -358,46 +362,66 @@
             // tBinteraccao
             // 
             this.tBinteraccao.Enabled = false;
-            this.tBinteraccao.Location = new System.Drawing.Point(617, 149);
+            this.tBinteraccao.Location = new System.Drawing.Point(617, 226);
             this.tBinteraccao.Name = "tBinteraccao";
             this.tBinteraccao.Size = new System.Drawing.Size(94, 20);
             this.tBinteraccao.TabIndex = 5;
             // 
             // tBRaio
             // 
-            this.tBRaio.Location = new System.Drawing.Point(617, 123);
+            this.tBRaio.Location = new System.Drawing.Point(617, 200);
             this.tBRaio.Name = "tBRaio";
             this.tBRaio.Size = new System.Drawing.Size(94, 20);
             this.tBRaio.TabIndex = 5;
             // 
             // tBPerc
             // 
-            this.tBPerc.Location = new System.Drawing.Point(617, 97);
+            this.tBPerc.Location = new System.Drawing.Point(617, 174);
             this.tBPerc.Name = "tBPerc";
             this.tBPerc.Size = new System.Drawing.Size(94, 20);
             this.tBPerc.TabIndex = 5;
             // 
             // tBInteraccoes
             // 
-            this.tBInteraccoes.Location = new System.Drawing.Point(617, 71);
+            this.tBInteraccoes.Location = new System.Drawing.Point(617, 148);
             this.tBInteraccoes.Name = "tBInteraccoes";
             this.tBInteraccoes.Size = new System.Drawing.Size(94, 20);
             this.tBInteraccoes.TabIndex = 5;
             // 
             // tBNeuronios
             // 
-            this.tBNeuronios.Location = new System.Drawing.Point(617, 45);
+            this.tBNeuronios.Location = new System.Drawing.Point(617, 122);
             this.tBNeuronios.Name = "tBNeuronios";
             this.tBNeuronios.Size = new System.Drawing.Size(94, 20);
             this.tBNeuronios.TabIndex = 5;
             // 
             // tBPontos
             // 
-            this.tBPontos.Location = new System.Drawing.Point(617, 19);
+            this.tBPontos.Location = new System.Drawing.Point(617, 22);
             this.tBPontos.Name = "tBPontos";
             this.tBPontos.Size = new System.Drawing.Size(94, 20);
             this.tBPontos.TabIndex = 5;
             this.tBPontos.TextChanged += new System.EventHandler(this.tBPontos_TextChanged);
+            // 
+            // bTAdicionar
+            // 
+            this.bTAdicionar.Location = new System.Drawing.Point(617, 49);
+            this.bTAdicionar.Name = "bTAdicionar";
+            this.bTAdicionar.Size = new System.Drawing.Size(94, 24);
+            this.bTAdicionar.TabIndex = 7;
+            this.bTAdicionar.Text = "Adicionar";
+            this.bTAdicionar.UseVisualStyleBackColor = true;
+            this.bTAdicionar.Click += new System.EventHandler(this.bTAdicionar_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(513, 6);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(198, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "(Adicione o número de Cidades MAX:50)";
             // 
             // Form1
             // 
@@ -457,6 +481,8 @@
         private System.Windows.Forms.Button bTIniciar;
         private System.Windows.Forms.Button tBParar;
         private AForge.Controls.Chart chart1;
+        private System.Windows.Forms.Button bTAdicionar;
+        private System.Windows.Forms.Label label7;
     }
 }
 
