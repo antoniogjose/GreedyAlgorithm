@@ -15,6 +15,9 @@ using AForge.Neuro;
 using AForge.Neuro.Learning;
 using AForge.Controls;
 
+
+#region GREADY_E_PERCEPTRON
+
 namespace GreedyAlgorithm
 {
     public partial class Form1 : Form
@@ -503,8 +506,10 @@ namespace GreedyAlgorithm
 
         }
 
+        #endregion
 
 
+        #region REDE NEURONAL
         //// Rede Neuronal Mapa de Kohonen com thread handeling
         //Inicio
 
@@ -524,7 +529,6 @@ namespace GreedyAlgorithm
         private Random rand = new Random();
 
         private Thread workerThread = null;
-        private Thread workerThreadAux = null;
         private bool needToStop = false;
 
 
@@ -580,9 +584,7 @@ namespace GreedyAlgorithm
             tBPerc.Enabled = enable;
             tBRaio.Enabled = enable;
 
-            bTIniciar.Enabled = enable;
-
-            tBParar.Enabled = !enable;
+            //bTIniciar.Enabled = enable;
         }
 
         // Worker thread
@@ -618,6 +620,7 @@ namespace GreedyAlgorithm
 
             // create learning algorithm
             ElasticNetworkLearning trainer = new ElasticNetworkLearning(network);
+
 
             double fixedLearningRate = learningRate / 20;
             double driftingLearningRate = fixedLearningRate * 19;
@@ -665,8 +668,6 @@ namespace GreedyAlgorithm
                 if (i >= iterations)
                     break;
             }
-
-            // enable settings controls
 
  
         }
@@ -726,10 +727,7 @@ namespace GreedyAlgorithm
 
         private void tBParar_Click(object sender, EventArgs e)
         {
-            // stop worker thread
-            needToStop = true;
-            if(workerThread != null) workerThread.Join();
-            workerThread = null;
+
         }
 
         private void tBPontos_TextChanged(object sender, EventArgs e)
@@ -761,6 +759,13 @@ namespace GreedyAlgorithm
             tBPontos.Text = citiesCount.ToString();
 
             GenerateMap();
+            EnableControls(true);
+        }
+
+        #endregion
+
+        private void bTAlterar_Click(object sender, EventArgs e)
+        {
             EnableControls(true);
         }
     }

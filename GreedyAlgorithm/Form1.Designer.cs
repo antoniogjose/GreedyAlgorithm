@@ -49,13 +49,14 @@
             this.bt_Calcular = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.chart1 = new AForge.Controls.Chart();
+            this.bTAdicionar = new System.Windows.Forms.Button();
             this.bTIniciar = new System.Windows.Forms.Button();
-            this.tBParar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lBNeuronios = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tBinteraccao = new System.Windows.Forms.TextBox();
             this.tBRaio = new System.Windows.Forms.TextBox();
@@ -63,8 +64,10 @@
             this.tBInteraccoes = new System.Windows.Forms.TextBox();
             this.tBNeuronios = new System.Windows.Forms.TextBox();
             this.tBPontos = new System.Windows.Forms.TextBox();
-            this.bTAdicionar = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
+            this.btAlterar = new System.Windows.Forms.Button();
+            this.chart2 = new AForge.Controls.Chart();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.tB.SuspendLayout();
             this.tP_PesInf.SuspendLayout();
             this.tP_RedNeu.SuspendLayout();
@@ -252,15 +255,18 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.chart2);
             this.tabPage1.Controls.Add(this.chart1);
+            this.tabPage1.Controls.Add(this.btAlterar);
             this.tabPage1.Controls.Add(this.bTAdicionar);
             this.tabPage1.Controls.Add(this.bTIniciar);
-            this.tabPage1.Controls.Add(this.tBParar);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.lBNeuronios);
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.tBinteraccao);
@@ -279,36 +285,36 @@
             // 
             // chart1
             // 
-            this.chart1.Location = new System.Drawing.Point(7, 4);
+            this.chart1.Location = new System.Drawing.Point(9, 22);
             this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(496, 391);
+            this.chart1.Size = new System.Drawing.Size(496, 171);
             this.chart1.TabIndex = 8;
             this.chart1.Text = "mapa";
             // 
+            // bTAdicionar
+            // 
+            this.bTAdicionar.Location = new System.Drawing.Point(617, 49);
+            this.bTAdicionar.Name = "bTAdicionar";
+            this.bTAdicionar.Size = new System.Drawing.Size(94, 24);
+            this.bTAdicionar.TabIndex = 7;
+            this.bTAdicionar.Text = "Adicionar";
+            this.bTAdicionar.UseVisualStyleBackColor = true;
+            this.bTAdicionar.Click += new System.EventHandler(this.bTAdicionar_Click);
+            // 
             // bTIniciar
             // 
-            this.bTIniciar.Location = new System.Drawing.Point(613, 354);
+            this.bTIniciar.Location = new System.Drawing.Point(509, 354);
             this.bTIniciar.Name = "bTIniciar";
-            this.bTIniciar.Size = new System.Drawing.Size(98, 41);
+            this.bTIniciar.Size = new System.Drawing.Size(202, 41);
             this.bTIniciar.TabIndex = 7;
             this.bTIniciar.Text = "Iniciar";
             this.bTIniciar.UseVisualStyleBackColor = true;
             this.bTIniciar.Click += new System.EventHandler(this.bTIniciar_Click);
             // 
-            // tBParar
-            // 
-            this.tBParar.Location = new System.Drawing.Point(509, 354);
-            this.tBParar.Name = "tBParar";
-            this.tBParar.Size = new System.Drawing.Size(98, 41);
-            this.tBParar.TabIndex = 7;
-            this.tBParar.Text = "Parar";
-            this.tBParar.UseVisualStyleBackColor = true;
-            this.tBParar.Click += new System.EventHandler(this.tBParar_Click);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(560, 229);
+            this.label6.Location = new System.Drawing.Point(560, 331);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 13);
             this.label6.TabIndex = 6;
@@ -317,7 +323,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(582, 203);
+            this.label5.Location = new System.Drawing.Point(582, 305);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 6;
@@ -326,7 +332,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(512, 177);
+            this.label4.Location = new System.Drawing.Point(512, 279);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 13);
             this.label4.TabIndex = 6;
@@ -335,7 +341,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(549, 151);
+            this.label3.Location = new System.Drawing.Point(549, 253);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 6;
@@ -344,11 +350,21 @@
             // lBNeuronios
             // 
             this.lBNeuronios.AutoSize = true;
-            this.lBNeuronios.Location = new System.Drawing.Point(557, 125);
+            this.lBNeuronios.Location = new System.Drawing.Point(557, 227);
             this.lBNeuronios.Name = "lBNeuronios";
             this.lBNeuronios.Size = new System.Drawing.Size(55, 13);
             this.lBNeuronios.TabIndex = 6;
             this.lBNeuronios.Text = "Neurónios";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(513, 6);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(198, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "(Adicione o número de Cidades MAX:50)";
             // 
             // label2
             // 
@@ -362,35 +378,35 @@
             // tBinteraccao
             // 
             this.tBinteraccao.Enabled = false;
-            this.tBinteraccao.Location = new System.Drawing.Point(617, 226);
+            this.tBinteraccao.Location = new System.Drawing.Point(617, 328);
             this.tBinteraccao.Name = "tBinteraccao";
             this.tBinteraccao.Size = new System.Drawing.Size(94, 20);
             this.tBinteraccao.TabIndex = 5;
             // 
             // tBRaio
             // 
-            this.tBRaio.Location = new System.Drawing.Point(617, 200);
+            this.tBRaio.Location = new System.Drawing.Point(617, 302);
             this.tBRaio.Name = "tBRaio";
             this.tBRaio.Size = new System.Drawing.Size(94, 20);
             this.tBRaio.TabIndex = 5;
             // 
             // tBPerc
             // 
-            this.tBPerc.Location = new System.Drawing.Point(617, 174);
+            this.tBPerc.Location = new System.Drawing.Point(617, 276);
             this.tBPerc.Name = "tBPerc";
             this.tBPerc.Size = new System.Drawing.Size(94, 20);
             this.tBPerc.TabIndex = 5;
             // 
             // tBInteraccoes
             // 
-            this.tBInteraccoes.Location = new System.Drawing.Point(617, 148);
+            this.tBInteraccoes.Location = new System.Drawing.Point(617, 250);
             this.tBInteraccoes.Name = "tBInteraccoes";
             this.tBInteraccoes.Size = new System.Drawing.Size(94, 20);
             this.tBInteraccoes.TabIndex = 5;
             // 
             // tBNeuronios
             // 
-            this.tBNeuronios.Location = new System.Drawing.Point(617, 122);
+            this.tBNeuronios.Location = new System.Drawing.Point(617, 224);
             this.tBNeuronios.Name = "tBNeuronios";
             this.tBNeuronios.Size = new System.Drawing.Size(94, 20);
             this.tBNeuronios.TabIndex = 5;
@@ -403,25 +419,43 @@
             this.tBPontos.TabIndex = 5;
             this.tBPontos.TextChanged += new System.EventHandler(this.tBPontos_TextChanged);
             // 
-            // bTAdicionar
+            // btAlterar
             // 
-            this.bTAdicionar.Location = new System.Drawing.Point(617, 49);
-            this.bTAdicionar.Name = "bTAdicionar";
-            this.bTAdicionar.Size = new System.Drawing.Size(94, 24);
-            this.bTAdicionar.TabIndex = 7;
-            this.bTAdicionar.Text = "Adicionar";
-            this.bTAdicionar.UseVisualStyleBackColor = true;
-            this.bTAdicionar.Click += new System.EventHandler(this.bTAdicionar_Click);
+            this.btAlterar.Location = new System.Drawing.Point(617, 194);
+            this.btAlterar.Name = "btAlterar";
+            this.btAlterar.Size = new System.Drawing.Size(94, 24);
+            this.btAlterar.TabIndex = 7;
+            this.btAlterar.Text = "Alterar";
+            this.btAlterar.UseVisualStyleBackColor = true;
+            this.btAlterar.Click += new System.EventHandler(this.bTAlterar_Click);
             // 
-            // label7
+            // chart2
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(513, 6);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(198, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "(Adicione o número de Cidades MAX:50)";
+            this.chart2.Location = new System.Drawing.Point(7, 224);
+            this.chart2.Name = "chart2";
+            this.chart2.Size = new System.Drawing.Size(496, 171);
+            this.chart2.TabIndex = 8;
+            this.chart2.Text = "mapa";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(4, 205);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(96, 13);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "(Método do Grupo)";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(6, 6);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(135, 13);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "(Método para comparação)";
             // 
             // Form1
             // 
@@ -479,10 +513,13 @@
         private System.Windows.Forms.TextBox tBPerc;
         private System.Windows.Forms.TextBox tBInteraccoes;
         private System.Windows.Forms.Button bTIniciar;
-        private System.Windows.Forms.Button tBParar;
         private AForge.Controls.Chart chart1;
         private System.Windows.Forms.Button bTAdicionar;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btAlterar;
+        private AForge.Controls.Chart chart2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }
 
