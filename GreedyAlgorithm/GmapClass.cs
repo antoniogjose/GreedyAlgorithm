@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GreedyAlgorithm
 {
-    public class GmapClass
+    public class GmapPois
     {
         public double Latitude { get; set; }
         public double Longitude { get; set; }
@@ -15,6 +15,6 @@ namespace GreedyAlgorithm
 
     public class GmapClassList
     {
-        public IList<GmapClass> resultados { get; set; }
+        public List<GmapPois> GmapPois { get; set; }
     }
 }

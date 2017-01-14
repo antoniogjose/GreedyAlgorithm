@@ -108,6 +108,29 @@ namespace GreedyAlgorithm
             chart1.RangeX = new DoubleRange(0, 1000);
             chart1.RangeY = new DoubleRange(0, 1000);
 
+
+            tBxMin.Text = "0";
+            tBxMax.Text = "1000";
+
+            tByMin.Text = "0";
+            tByMax.Text = "1000";
+
+            //41.5361453446439/long/-8.6068868637085/area/500
+            tBLat.Enabled = false;
+            tBLong.Enabled = false;
+            tBArea.Enabled = false;
+            btPois.Enabled = false;
+            tBPontos.Enabled = true;
+            bTAdicionar.Enabled = true;
+
+            checkBox2.Checked = false;
+            checkBox1.Checked = true;
+
+            tBLong.Text = "-8.6068868637085";
+            tBLat.Text = "41.5361453446439";
+            tBArea.Text = "500";
+
+
             UpdateSettings();
             GenerateMap();
 
@@ -528,26 +551,7 @@ namespace GreedyAlgorithm
         #region REDE NEURONAL
         //// Rede Neuronal Mapa de Kohonen com thread handeling
         //Inicio
-        private void GenerateMapRest()
-        {
-            WebClient webClient = new WebClient();
 
-            var url = @"http://localhost:5875/ExternalService.svc/GetGmapPoiCoord/lat/41.5361453446439/long/-8.6068868637085/area/500";
-
-
-            string Text = webClient.DownloadString(url);
-            JavaScriptSerializer jss = new JavaScriptSerializer();
-
-            GmapClassList pois = jss.Deserialize<GmapClassList>(Text);
-
-            for (int i = 0; i < pois.resultados.Count; i++)
-            {
-                // apresentar o nome do POI em portugues
-                map[i, 0] = pois.resultados[i].Latitude;
-                map[i, 1] = pois.resultados[i].Longitude;
-            }
-
-        }
 
         delegate void SetTextCallback(string text);
 
@@ -564,6 +568,66 @@ namespace GreedyAlgorithm
         private bool needToStop = false;
 
 
+        private void GenerateMapRest()
+        {
+            WebClient webClient = new WebClient();
+
+            var url = @"http://localhost:5875/ExternalService.svc/GetGmapPoiCoord/lat/";
+            //41.5361453446439/long/-8.6068868637085/area/500
+            url += tBLat.Text.ToString();
+            url += "/long/";
+            url += tBLong.Text.ToString();
+            url += "/area/";
+            url += tBArea.Text.ToString();
+            string Text;
+
+            try
+            {
+                Text = webClient.DownloadString(url);
+            }
+
+            catch(Exception e)  
+            {
+                MessageBox.Show(e.ToString() + " URI : " + url);
+                return;
+            }
+
+            JavaScriptSerializer jss = new JavaScriptSerializer();
+
+            GmapClassList pois = jss.Deserialize<GmapClassList>(Text);
+
+            map = new double[pois.GmapPois.Count, 2];
+
+            if (pois.GmapPois.Count > 0)
+            {
+
+                chart1.RangeX = new DoubleRange(pois.GmapPois.Min(x => x.Latitude), pois.GmapPois.Max(x => x.Latitude));
+                chart1.RangeY = new DoubleRange(pois.GmapPois.Min(x => x.Longitude), pois.GmapPois.Max(x => x.Longitude));
+
+                tBxMin.Text = chart1.RangeX.Min.ToString();
+                tBxMax.Text = chart1.RangeX.Max.ToString();
+
+                tByMin.Text = chart1.RangeY.Min.ToString();
+                tByMax.Text = chart1.RangeY.Max.ToString();
+
+                tBPoisF.Text = pois.GmapPois.Count.ToString();
+
+                for (int i = 0; i < pois.GmapPois.Count; i++)
+                {
+                    // apresentar o nome do POI em portugues
+                    map[i, 0] = pois.GmapPois[i].Latitude;
+                    map[i, 1] = pois.GmapPois[i].Longitude;
+                }
+
+                chart1.UpdateDataSeries("Cidades", map);
+
+                chart1.UpdateDataSeries("Caminho", null);
+            }
+        }
+
+
+
+
 
         private void UpdateSettings()
         {
@@ -578,6 +642,16 @@ namespace GreedyAlgorithm
         private void GenerateMap()
         {
             Random rand = new Random((int)DateTime.Now.Ticks);
+
+            chart1.RangeX = new DoubleRange(0, 1000);
+            chart1.RangeY = new DoubleRange(0, 1000);
+
+
+            tBxMin.Text = "0";
+            tBxMax.Text = "1000";
+
+            tByMin.Text = "0";
+            tByMax.Text = "1000";
 
             map = new double[citiesCount, 2];
 
@@ -790,8 +864,7 @@ namespace GreedyAlgorithm
             }
             tBPontos.Text = citiesCount.ToString();
 
-            //GenerateMap();
-            GenerateMapRest();
+            GenerateMap();
             EnableControls(true);
         }
 
@@ -802,7 +875,34 @@ namespace GreedyAlgorithm
             EnableControls(true);
         }
 
-        
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            tBLat.Enabled = false;
+            tBLong.Enabled = false;
+            tBArea.Enabled = false;
+            btPois.Enabled = false;
+            tBPontos.Enabled = true;
+            bTAdicionar.Enabled = true;
+
+            checkBox2.Checked = false;
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            tBPontos.Enabled = false;
+            bTAdicionar.Enabled = false;
+            tBLat.Enabled = true;
+            tBLong.Enabled = true;
+            tBArea.Enabled = true;
+            btPois.Enabled = true;
+
+            checkBox1.Checked = false;
+        }
+
+        private void btPois_Click(object sender, EventArgs e)
+        {
+            GenerateMapRest();
+        }
     }
 }
 
