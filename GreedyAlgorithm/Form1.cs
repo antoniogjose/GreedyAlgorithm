@@ -10,10 +10,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 
+using System.Globalization;
+using System.Net;
+
 using AForge;
 using AForge.Neuro;
 using AForge.Neuro.Learning;
 using AForge.Controls;
+using GreedyAlgorithm.GmapService;
+using System.Web.Script.Serialization;
+
+
+
+
 
 
 #region GREADY_E_PERCEPTRON
@@ -46,6 +55,8 @@ namespace GreedyAlgorithm
             "Vaslui",
             "Zerind"
         };
+
+
 
         // distancia direta entre Bucharest e as outras cidades
 
@@ -82,6 +93,8 @@ namespace GreedyAlgorithm
 
         // grafo
         List<List<no>> grafo = new List<List<no>>();
+
+        List<string> listadeCidades = new List<string>();
 
 
         public Form1()
@@ -177,7 +190,10 @@ namespace GreedyAlgorithm
 
             // se encontrar retornamos true
             grafo[inicio][cont].Visited = true;
-            if (inicio != fim) rTb_Output.AppendText(cidades[grafo[inicio][cont].Index] + "\n");
+            if (inicio != fim)
+            {
+                rTb_Output.AppendText(cidades[grafo[inicio][cont].Index] + "\n");
+            }
 
             if (inicio == fim)
             {
@@ -512,10 +528,26 @@ namespace GreedyAlgorithm
         #region REDE NEURONAL
         //// Rede Neuronal Mapa de Kohonen com thread handeling
         //Inicio
+        private void GenerateMapRest()
+        {
+            WebClient webClient = new WebClient();
+
+            var url = @"http://localhost:5875/ExternalService.svc/GetGmapPoiCoord/lat/41.5361453446439/long/-8.6068868637085/area/500";
 
 
+            string Text = webClient.DownloadString(url);
+            JavaScriptSerializer jss = new JavaScriptSerializer();
 
+            GmapClassList pois = jss.Deserialize<GmapClassList>(Text);
 
+            for (int i = 0; i < pois.resultados.Count; i++)
+            {
+                // apresentar o nome do POI em portugues
+                map[i, 0] = pois.resultados[i].Latitude;
+                map[i, 1] = pois.resultados[i].Longitude;
+            }
+
+        }
 
         delegate void SetTextCallback(string text);
 
@@ -758,15 +790,20 @@ namespace GreedyAlgorithm
             }
             tBPontos.Text = citiesCount.ToString();
 
-            GenerateMap();
+            //GenerateMap();
+            GenerateMapRest();
             EnableControls(true);
         }
 
-        #endregion
+
 
         private void bTAlterar_Click(object sender, EventArgs e)
         {
             EnableControls(true);
         }
+
+        
     }
 }
+
+#endregion
