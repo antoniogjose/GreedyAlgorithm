@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CRUDImoestudante" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CRUDImoestudante" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfMultiUtilizadorRespostaPedido">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MultiUtilizadorRespostaPedido" nillable="true" type="tns:MultiUtilizadorRespostaPedido" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMultiUtilizadorRespostaPedido" nillable="true" type="tns:ArrayOfMultiUtilizadorRespostaPedido" />
+  <xs:complexType name="MultiUtilizadorRespostaPedido">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CursoUtilizador" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataNascimento" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Gen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdUser" type="xs:int" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaisOrigen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoUtilizador" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MultiUtilizadorRespostaPedido" nillable="true" type="tns:MultiUtilizadorRespostaPedido" />
+  <xs:complexType name="UtilizadorRespostaPedido">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Contactos" nillable="true" type="tns:ArrayOfContactoRespostaPedido" />
+      <xs:element minOccurs="0" name="CursoUtilizador" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataNascimento" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Gen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdUser" type="xs:int" />
+      <xs:element minOccurs="0" name="MoradaUtilizador" nillable="true" type="tns:MoradaRespostaPedido" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaisOrigen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoUtilizador" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UtilizadorRespostaPedido" nillable="true" type="tns:UtilizadorRespostaPedido" />
+  <xs:complexType name="ArrayOfContactoRespostaPedido">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContactoRespostaPedido" nillable="true" type="tns:ContactoRespostaPedido" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContactoRespostaPedido" nillable="true" type="tns:ArrayOfContactoRespostaPedido" />
+  <xs:complexType name="ContactoRespostaPedido">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdContacto" type="xs:int" />
+      <xs:element minOccurs="0" name="Nivel" type="xs:int" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Valor" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactoRespostaPedido" nillable="true" type="tns:ContactoRespostaPedido" />
+  <xs:complexType name="MoradaRespostaPedido">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Andar" type="xs:int" />
+      <xs:element minOccurs="0" name="Cidade" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodPostal" type="xs:int" />
+      <xs:element minOccurs="0" name="DescAndar" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdMorada" type="xs:int" />
+      <xs:element minOccurs="0" name="Numero" type="xs:int" />
+      <xs:element minOccurs="0" name="Pais" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rua" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MoradaRespostaPedido" nillable="true" type="tns:MoradaRespostaPedido" />
+  <xs:complexType name="ArrayOfTipoUserRespostaPedido">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TipoUserRespostaPedido" nillable="true" type="tns:TipoUserRespostaPedido" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTipoUserRespostaPedido" nillable="true" type="tns:ArrayOfTipoUserRespostaPedido" />
+  <xs:complexType name="TipoUserRespostaPedido">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoUserRespostaPedido" nillable="true" type="tns:TipoUserRespostaPedido" />
+  <xs:complexType name="ArrayOfPaisRespostaPedido">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PaisRespostaPedido" nillable="true" type="tns:PaisRespostaPedido" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPaisRespostaPedido" nillable="true" type="tns:ArrayOfPaisRespostaPedido" />
+  <xs:complexType name="PaisRespostaPedido">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PaisRespostaPedido" nillable="true" type="tns:PaisRespostaPedido" />
+  <xs:complexType name="ArrayOfAlojamentoRespostaPedido">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlojamentoRespostaPedido" nillable="true" type="tns:AlojamentoRespostaPedido" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlojamentoRespostaPedido" nillable="true" type="tns:ArrayOfAlojamentoRespostaPedido" />
+  <xs:complexType name="AlojamentoRespostaPedido">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Avaliacao" type="xs:int" />
+      <xs:element minOccurs="0" name="IdAlojamento" type="xs:int" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MoradaAlojamento" nillable="true" type="tns:MoradaRespostaPedido" />
+      <xs:element minOccurs="0" name="TipoAloj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipol" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="comodidades" nillable="true" type="tns:ArrayOfcomodidadeRespostaPedido" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlojamentoRespostaPedido" nillable="true" type="tns:AlojamentoRespostaPedido" />
+  <xs:complexType name="ArrayOfcomodidadeRespostaPedido">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="comodidadeRespostaPedido" nillable="true" type="tns:comodidadeRespostaPedido" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfcomodidadeRespostaPedido" nillable="true" type="tns:ArrayOfcomodidadeRespostaPedido" />
+  <xs:complexType name="comodidadeRespostaPedido">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DescComodidade" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdComodidade" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="comodidadeRespostaPedido" nillable="true" type="tns:comodidadeRespostaPedido" />
+</xs:schema>

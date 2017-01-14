@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CRUDImoestudante.App_Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CRUDImoestudante.App_Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfaluguer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="aluguer" nillable="true" type="tns:aluguer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfaluguer" nillable="true" type="tns:ArrayOfaluguer" />
+  <xs:complexType name="aluguer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="alojamento" nillable="true" type="tns:alojamento" />
+      <xs:element minOccurs="0" name="dataFim" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dataInicio" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idAlojamento" type="xs:int" />
+      <xs:element minOccurs="0" name="idAluguer" type="xs:int" />
+      <xs:element minOccurs="0" name="idUserAgente" type="xs:int" />
+      <xs:element minOccurs="0" name="idUserInquilino" type="xs:int" />
+      <xs:element minOccurs="0" name="idUserSenhorio" type="xs:int" />
+      <xs:element minOccurs="0" name="user" nillable="true" type="tns:user" />
+      <xs:element minOccurs="0" name="user1" nillable="true" type="tns:user" />
+      <xs:element minOccurs="0" name="user2" nillable="true" type="tns:user" />
+      <xs:element minOccurs="0" name="valoRenda" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="aluguer" nillable="true" type="tns:aluguer" />
+  <xs:complexType name="alojamento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="aluguers" nillable="true" type="tns:ArrayOfaluguer" />
+      <xs:element minOccurs="0" name="avaliacao" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="descricao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" nillable="true" type="tns:estado" />
+      <xs:element minOccurs="0" name="idAlojamento" type="xs:int" />
+      <xs:element minOccurs="0" name="idEstado" type="xs:int" />
+      <xs:element minOccurs="0" name="idMorada" type="xs:int" />
+      <xs:element minOccurs="0" name="idTipoAlojamento" type="xs:int" />
+      <xs:element minOccurs="0" name="idTipologia" type="xs:int" />
+      <xs:element minOccurs="0" name="latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="morada" nillable="true" type="tns:morada" />
+      <xs:element minOccurs="0" name="tipoAlojamento" nillable="true" type="tns:tipoAlojamento" />
+      <xs:element minOccurs="0" name="tipologia" nillable="true" type="tns:tipologia" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="alojamento" nillable="true" type="tns:alojamento" />
+  <xs:complexType name="estado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="alojamentoes" nillable="true" type="tns:ArrayOfalojamento" />
+      <xs:element minOccurs="0" name="idEstado" type="xs:int" />
+      <xs:element minOccurs="0" name="nomeEstado" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="estado" nillable="true" type="tns:estado" />
+  <xs:complexType name="ArrayOfalojamento">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="alojamento" nillable="true" type="tns:alojamento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfalojamento" nillable="true" type="tns:ArrayOfalojamento" />
+  <xs:complexType name="morada">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="alojamentoes" nillable="true" type="tns:ArrayOfalojamento" />
+      <xs:element minOccurs="0" name="andar" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="cidade" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="codigoPostal" type="xs:int" />
+      <xs:element minOccurs="0" name="descAndar" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idMorada" type="xs:int" />
+      <xs:element minOccurs="0" name="idPais" type="xs:int" />
+      <xs:element minOccurs="0" name="instituicaoEnsinoes" nillable="true" type="tns:ArrayOfinstituicaoEnsino" />
+      <xs:element minOccurs="0" name="numero" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="pai" nillable="true" type="tns:pai" />
+      <xs:element minOccurs="0" name="rua" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="morada" nillable="true" type="tns:morada" />
+  <xs:complexType name="ArrayOfinstituicaoEnsino">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="instituicaoEnsino" nillable="true" type="tns:instituicaoEnsino" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfinstituicaoEnsino" nillable="true" type="tns:ArrayOfinstituicaoEnsino" />
+  <xs:complexType name="instituicaoEnsino">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cursoes" nillable="true" type="tns:ArrayOfcurso" />
+      <xs:element minOccurs="0" name="idInstituicao" type="xs:int" />
+      <xs:element minOccurs="0" name="idMorada" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="morada" nillable="true" type="tns:morada" />
+      <xs:element minOccurs="0" name="nomeInstituicao" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="instituicaoEnsino" nillable="true" type="tns:instituicaoEnsino" />
+  <xs:complexType name="ArrayOfcurso">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="curso" nillable="true" type="tns:curso" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfcurso" nillable="true" type="tns:ArrayOfcurso" />
+  <xs:complexType name="curso">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="anoCurso" type="xs:int" />
+      <xs:element minOccurs="0" name="areaCursoes" nillable="true" type="tns:ArrayOfareaCurso" />
+      <xs:element minOccurs="0" name="idCurso" type="xs:int" />
+      <xs:element minOccurs="0" name="idInstituicao" type="xs:int" />
+      <xs:element minOccurs="0" name="instituicaoEnsino" nillable="true" type="tns:instituicaoEnsino" />
+      <xs:element minOccurs="0" name="nomeCurso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="users" nillable="true" type="tns:ArrayOfuser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="curso" nillable="true" type="tns:curso" />
+  <xs:complexType name="ArrayOfareaCurso">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="areaCurso" nillable="true" type="tns:areaCurso" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfareaCurso" nillable="true" type="tns:ArrayOfareaCurso" />
+  <xs:complexType name="areaCurso">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="curso" nillable="true" type="tns:curso" />
+      <xs:element minOccurs="0" name="idArea" type="xs:int" />
+      <xs:element minOccurs="0" name="idCurso" type="xs:int" />
+      <xs:element minOccurs="0" name="nomeArea" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="areaCurso" nillable="true" type="tns:areaCurso" />
+  <xs:complexType name="ArrayOfuser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="user" nillable="true" type="tns:user" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfuser" nillable="true" type="tns:ArrayOfuser" />
+  <xs:complexType name="user">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="aluguers" nillable="true" type="tns:ArrayOfaluguer" />
+      <xs:element minOccurs="0" name="aluguers1" nillable="true" type="tns:ArrayOfaluguer" />
+      <xs:element minOccurs="0" name="aluguers2" nillable="true" type="tns:ArrayOfaluguer" />
+      <xs:element minOccurs="0" name="apiKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="contactoes" nillable="true" type="tns:ArrayOfcontacto" />
+      <xs:element minOccurs="0" name="curso" nillable="true" type="tns:curso" />
+      <xs:element minOccurs="0" name="dataNascimento" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="genero" nillable="true" type="tns:genero" />
+      <xs:element minOccurs="0" name="idCurso" type="xs:int" />
+      <xs:element minOccurs="0" name="idGenero" type="xs:int" />
+      <xs:element minOccurs="0" name="idMorada" type="xs:int" />
+      <xs:element minOccurs="0" name="idPais" type="xs:int" />
+      <xs:element minOccurs="0" name="idTipo" type="xs:int" />
+      <xs:element minOccurs="0" name="idUser" type="xs:int" />
+      <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="pai" nillable="true" type="tns:pai" />
+      <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="user" nillable="true" type="tns:user" />
+  <xs:complexType name="ArrayOfcontacto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="contacto" nillable="true" type="tns:contacto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfcontacto" nillable="true" type="tns:ArrayOfcontacto" />
+  <xs:complexType name="contacto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idContacto" type="xs:int" />
+      <xs:element minOccurs="0" name="idUser" type="xs:int" />
+      <xs:element minOccurs="0" name="nivel" type="xs:int" />
+      <xs:element minOccurs="0" name="tipo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="user" nillable="true" type="tns:user" />
+      <xs:element minOccurs="0" name="valor" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="contacto" nillable="true" type="tns:contacto" />
+  <xs:complexType name="genero">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idGenero" type="xs:int" />
+      <xs:element minOccurs="0" name="nomeGenero" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="users" nillable="true" type="tns:ArrayOfuser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="genero" nillable="true" type="tns:genero" />
+  <xs:complexType name="pai">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idPais" type="xs:int" />
+      <xs:element minOccurs="0" name="moradas" nillable="true" type="tns:ArrayOfmorada" />
+      <xs:element minOccurs="0" name="nomePais" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="users" nillable="true" type="tns:ArrayOfuser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="pai" nillable="true" type="tns:pai" />
+  <xs:complexType name="ArrayOfmorada">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="morada" nillable="true" type="tns:morada" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmorada" nillable="true" type="tns:ArrayOfmorada" />
+  <xs:complexType name="tipoAlojamento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="alojamentoes" nillable="true" type="tns:ArrayOfalojamento" />
+      <xs:element minOccurs="0" name="idTipoAlojamento" type="xs:int" />
+      <xs:element minOccurs="0" name="nomeTipoAlojamento" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tipoAlojamento" nillable="true" type="tns:tipoAlojamento" />
+  <xs:complexType name="tipologia">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="alojamentoes" nillable="true" type="tns:ArrayOfalojamento" />
+      <xs:element minOccurs="0" name="idTopologia" type="xs:int" />
+      <xs:element minOccurs="0" name="nometipologia" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tipologia" nillable="true" type="tns:tipologia" />
+</xs:schema>
